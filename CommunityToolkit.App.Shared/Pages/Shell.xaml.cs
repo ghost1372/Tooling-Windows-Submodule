@@ -35,7 +35,7 @@ public sealed partial class Shell : Page
     {
         samplePages = e.Parameter as IEnumerable<ToolkitFrontMatter>;
         SetupNavigationMenu();
-        base.OnNavigatedTo(e); 
+        base.OnNavigatedTo(e);
     }
 
 
@@ -64,6 +64,7 @@ public sealed partial class Shell : Page
             if (NavigationFrame.CurrentSourcePageType != typeof(SettingsPage))
             {
                 NavigationFrame.Navigate(typeof(SettingsPage));
+                TrackingManager.TrackPage("Settings");
             }
         }
 
@@ -71,6 +72,7 @@ public sealed partial class Shell : Page
         else if (selectedItem.Tag != null && selectedItem.Tag.GetType() == typeof(string))
         {
             NavigationFrame.Navigate(typeof(GettingStartedPage), samplePages);
+            TrackingManager.TrackPage("GettingStarted");
         }
         else
         {
@@ -78,6 +80,7 @@ public sealed partial class Shell : Page
             if (selectedMetadata is null)
                 return;
             NavigationFrame.Navigate(typeof(ToolkitDocumentationRenderer), selectedMetadata);
+            TrackingManager.TrackSample(selectedMetadata.Title!);
         }
     }
 
@@ -86,10 +89,12 @@ public sealed partial class Shell : Page
         if (sample is null)
         {
             NavigationFrame.Navigate(typeof(GettingStartedPage), samplePages);
+            TrackingManager.TrackPage("GettingStarted");
         }
         else
         {
             NavigationFrame.Navigate(typeof(ToolkitDocumentationRenderer), sample);
+            TrackingManager.TrackSample(sample.Title!);
         }
 
         EnsureNavigationSelection(sample?.FilePath);

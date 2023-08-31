@@ -32,6 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DocOrSampleTemplateSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\IconHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\NavigationViewHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\TrackingManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\GettingStartedPage.xaml.cs">
       <DependentUpon>GettingStartedPage.xaml</DependentUpon>
     </Compile>
@@ -247,8 +248,6 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\WideTile.scale-200_altform-colorful_theme-light.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\WideTile.scale-400.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\WideTile.scale-400_altform-colorful_theme-light.png" />
-
-
     <Content Include="$(MSBuildThisFileDirectory)LinkerConfig.xml" />
   </ItemGroup>
   <ItemGroup>
